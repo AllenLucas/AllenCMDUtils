@@ -17,6 +17,7 @@ class CMDUtils private constructor() {
 
     fun shiZuKuCmd(cmd: String, callback: (InputStream) -> Unit = {}) {
         Shizuku.newProcess(cmd.split(" ").toTypedArray(), null, "/").apply {
+            Log.d("lal-cmd","运行指令$cmd")
             callback.invoke(inputStream)
         }
     }
